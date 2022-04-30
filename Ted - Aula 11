@@ -1,0 +1,19 @@
+linha,coluna = (10,10)
+from random import randint
+
+matriz_a = []
+
+for l in range(linha):
+    lin = []
+    for c in range(coluna):
+        lin.append(randint(1,100))
+    matriz_a.append(lin)
+
+print(matriz_a)
+
+#Letra a
+soma = 0
+for l in range(linha):
+    for c in range(coluna):
+        soma +=matriz_a[l][c]
+print("A soma da matriz é {}".format(soma)) 
