@@ -1,7 +1,7 @@
+codigo = 0
 controle = 1
-dados = dict()
+dados = []
 
-   
 
 while controle != 0:
     print ('-' *50)
@@ -19,19 +19,30 @@ while controle != 0:
 
         dados_auxiliar = {}
 
-        dados_auxiliar['codigo'] = int(input("Qual o seu código : "))
+        dados_auxiliar['codigo'] = codigo = codigo + 1
         dados_auxiliar['nome'] = str(input("Qual o seu nome: "))
         dados_auxiliar['email'] = input("Qual o seu email: ")  
         dados_auxiliar['data'] = str(input("Qual a data de admissão: "))
         dados_auxiliar['salario'] = int(input("Qual o seu salário: "))
         print("Cadastro executado com sucesso")
-        dados.update(dados_auxiliar)
-        
-      
+        dados.append(dados_auxiliar)
 
 
 #Alterar funcionario
-    # if controle == 2:
+    elif controle == 2:
+        print(dados)
+        a = int(input("Qual a posição/índice do funcionário que você deseja alterar? "))
+
+        dados1 = {}
+        dados1['codigo'] = codigo = codigo + 1
+        dados1['nome'] = str(input("Qual o seu nome: "))
+        dados1['email'] = input("Qual o seu email: ")  
+        dados1['data'] = str(input("Qual a data de admissão: "))
+        dados1['salario'] = int(input("Qual o seu salário: "))
+        print("Cadastro modificado com sucesso")
+        del(dados[a])
+        dados.insert(a, dados1)
+
 
 
 
@@ -47,17 +58,19 @@ while controle != 0:
 
 
 
-# Deletar funiocnario
+# Deletar funcionario
     if controle == 4:
-        func = int(input("Digite o código do Funcionário que dejeja deletar: "))
-        del(dados[int(func)])
+        print(dados)
+        func = int(input("Digite a posição/índice do Funcionário que deseja deletar: "))
+        dados.pop(func)
 
-
-
-
-
-
-
-
-
+# Aumento de salário
+    # if controle == 5:
+    #     print(dados)
+    #     s = int(input("Qual posição/índice do Funcionário que deseja alterar? "))
+    #     novo_salario = float(input("Quanto de aumento no salário você quer dar a esse funcionário? "))
+    #     novo_salario1 = novo_salario + dados_auxiliar[{s, 'salario' }]
+    #     dados_auxiliar[{s, 'salario'}] = novo_salario1
+    #     dados.insert(s, ['salario'])
+        
 print("FIM")
